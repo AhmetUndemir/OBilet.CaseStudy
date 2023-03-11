@@ -23,7 +23,19 @@ namespace OBilet.Business
 		}
 		public BusLocationResponseModel GetBusLocations(BusLocation data)
 		{
-			//Doldurulacak
+			var DeviceSession = new DeviceSession()
+			{
+				DeviceId = data.DeviceSession.DeviceId,
+				SessionId = data.DeviceSession.SessionId
+			};
+
+			data = new BusLocation
+			{
+				DeviceSession =DeviceSession,
+				Data = data.Data,
+				Date = data.Date,
+				Language = data.Language
+			};
 			return _requestManager.Post<BusLocationResponseModel>(data, "location/getbuslocations");
 		}
 	}

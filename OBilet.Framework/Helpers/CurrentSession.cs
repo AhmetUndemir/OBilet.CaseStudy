@@ -16,6 +16,14 @@ namespace OBilet.Framework
                 return Get("sessionId");
             }
         }
+
+        public static string DeviceInfo
+        {
+            get
+            {
+                return Get("deviceId");
+            }
+        }
         public static void Set(string key, string value)
         {
             HttpContext.Current.Session[key] = value;
