@@ -44,6 +44,17 @@ namespace OBilet.CaseStudy
 				this.originLocation = busJourneyDatas.Select(a => a.OriginLocation).FirstOrDefault();
 				this.destinationLocation = busJourneyDatas.Select(a => a.DestinationLocation).FirstOrDefault();
 				this.departureDate = busJourneyDatas.Select(a => a.Journey.Departure).FirstOrDefault();
+
+
+				CurrentSession.Set("originlocation", this.originLocation);
+				CurrentSession.Set("originlocationid", this.originId.ToString());
+
+				CurrentSession.Set("destinationlocation", this.destinationLocation);
+				CurrentSession.Set("destinationlocationid", this.destinationId.ToString());
+
+				CurrentSession.Set("departure", this.departureDate.ToString());
+
+
 			}
 			return this;
 		}

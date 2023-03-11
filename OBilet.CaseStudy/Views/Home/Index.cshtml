@@ -1,6 +1,19 @@
 ﻿@model OBilet.CaseStudy.IndexModel
+@using OBilet.Framework;
 @{
 	ViewBag.Title = "Home Page";
+}
+
+@if (!string.IsNullOrEmpty(CurrentSession.Get("originlocation")) && !string.IsNullOrEmpty(CurrentSession.Get("destinationlocation")) && !string.IsNullOrEmpty(CurrentSession.Get("departure")))
+{
+@Html.Hidden("originlocation", CurrentSession.Get("originlocation"))
+@Html.Hidden("originlocationid", CurrentSession.Get("destinationlocation"))
+
+@Html.Hidden("destinationlocation", CurrentSession.Get("destinationlocation"))
+@Html.Hidden("destinationlocationid", CurrentSession.Get("destinationlocationid"))
+
+@Html.Hidden("departure", CurrentSession.Get("departure"))
+
 }
 
 <link href="~/Content/index.css" rel="stylesheet" />

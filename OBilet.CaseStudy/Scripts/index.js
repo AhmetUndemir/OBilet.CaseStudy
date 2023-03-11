@@ -18,10 +18,10 @@ function swaper() {
     var co_2 = $("#tobuslocation").val();
     var co_2Text = $("#tobuslocation option:selected").text();
 
-    var toSpan = document.querySelector('#tobuslocation_chosen a span');
+    var toSpan = $('#tobuslocation_chosen a span');
     var result = $(toSpan).text(coText);
     var resultValues = $(toSpan).val(co);
-    var fromSpan = document.querySelector('#frombuslocation_chosen a span');
+    var fromSpan = $('#frombuslocation_chosen a span');
     var result1 = $(fromSpan).text(co_2Text);
     var result1Value = $(fromSpan).val(co_2);
 
@@ -33,15 +33,16 @@ function swaper() {
 
 $(function () {
     debugger;
-    document.getElementById('today').style.backgroundColor = 'white'
-    document.getElementById('tomorrow').style.backgroundColor = 'grey'
+    $('#today').css("background-color", "white");
+    $('#tomorrow').css("background-color", "grey");
     var tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate() + 1);
-    document.getElementById("date").value = tomorrow.toDateString();
+    $("#date").value = tomorrow.toDateString();
 });
 
 $("#date").flatpickr({
     enableTime: true,
+    locale:"tr",
     //dateFormat: "d F Y l",
     dateFormat: "D M d Y",
     minDate: "today"
@@ -49,18 +50,18 @@ $("#date").flatpickr({
 
 $("#today").click(function () {
     debugger;
-    document.getElementById('today').style.backgroundColor = 'grey'
-    document.getElementById('tomorrow').style.backgroundColor = 'white'
+    $('#today').css("background-color", "grey");
+    $('#tomorrow').css("background-color", "white");
     var date = new Date();
-    document.getElementById("date").value = date.toDateString();
+    $("#date").val(date.toDateString());
 });
 
 $("#tomorrow").click(function () {
-    document.getElementById('today').style.backgroundColor = 'white'
-    document.getElementById('tomorrow').style.backgroundColor = 'grey'
+    $('#today').css("background-color", "white");
+    $('#tomorrow').css("background-color", "grey");
     var tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate() + 1);
-    document.getElementById("date").value = tomorrow.toDateString();
+    $("#date").val(tomorrow.toDateString());
 });
 
 $(function () {
@@ -100,11 +101,11 @@ $(function () {
     var destinationid = $("#destinationlocationid").val();
 
     if (originvaltext != null && destinationText != null && $("#departure").val() != null) {
-        var toSpan = document.querySelector('#tobuslocation_chosen a span');
-        var result = $(toSpan).text(originvaltext);
+        var toSpan = $('#tobuslocation_chosen a span');
+        var result = $(toSpan).text(destinationText); destinationText
         var resultValues = $(toSpan).val(originvalId);
-        var fromSpan = document.querySelector('#frombuslocation_chosen a span');
-        var result1 = $(fromSpan).text(destinationText);
+        var fromSpan = $('#frombuslocation_chosen a span');
+        var result1 = $(fromSpan).text(originvaltext);
         var result1Value = $(fromSpan).val(destinationid);
 
         $("#frombuslocation option:selected").val(result1Value.val());
@@ -113,6 +114,9 @@ $(function () {
         $("#tobuslocation option:selected").text(result.text());
 
         var departure = $("#departure").val();
-        document.getElementById("date").value = new Date(departure).toDateString();
+        departure = new Date(departure).toLocaleString()
+        var date = new Date(departure); 
+        $("#date").val(date.toDateString());
+
     }
 });
