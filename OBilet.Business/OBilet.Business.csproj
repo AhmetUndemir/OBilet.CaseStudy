@@ -77,9 +77,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\IBusLocationService.cs" />
+    <Compile Include="Abstract\IJourneyService.cs" />
     <Compile Include="Abstract\ISessionService.cs" />
     <Compile Include="Abstract\IRequestService.cs" />
     <Compile Include="Conctrete\BusLocationManager.cs" />
+    <Compile Include="Conctrete\JourneyManager.cs" />
     <Compile Include="Conctrete\RequestManager.cs" />
     <Compile Include="Conctrete\SessionManager.cs" />
     <Compile Include="Models\BaseUrl.cs" />

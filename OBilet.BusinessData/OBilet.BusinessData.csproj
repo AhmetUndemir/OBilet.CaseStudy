@@ -47,14 +47,20 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RequestModel\Application.cs" />
     <Compile Include="RequestModel\BaseBusLocation.cs" />
+    <Compile Include="RequestModel\BaseRequestModel.cs" />
     <Compile Include="RequestModel\Browser.cs" />
+    <Compile Include="RequestModel\BusJourney.cs" />
+    <Compile Include="RequestModel\BusJourneyData.cs" />
     <Compile Include="RequestModel\BusLocation.cs" />
     <Compile Include="RequestModel\BusLocationData.cs" />
     <Compile Include="RequestModel\Connection.cs" />
+    <Compile Include="RequestModel\Data.cs" />
     <Compile Include="RequestModel\DeviceSession.cs" />
+    <Compile Include="RequestModel\Journey.cs" />
     <Compile Include="RequestModel\Session.cs" />
     <Compile Include="RequestModel\SessionData.cs" />
     <Compile Include="ResponseModel\BaseResponseModel.cs" />
+    <Compile Include="ResponseModel\BusJourneyResponseModel.cs" />
     <Compile Include="ResponseModel\BusLocationResponseModel.cs" />
     <Compile Include="ResponseModel\SessionResponseModel.cs" />
   </ItemGroup>
