@@ -19,10 +19,13 @@ namespace OBilet.CaseStudy
 
 		public IndexModel Load()
 		{
-			var sessionInfo = _sessionManager.GetSession();
-			CurrentSession.Set("sessionId", sessionInfo.Data.SessionId);
-			CurrentSession.Set("deviceId", sessionInfo.Data.DeviceId);
-			sessionId = CurrentSession.User.ToString();
+			if (string.IsNullOrEmpty(CurrentSession.Get("sessionId")) && string.IsNullOrEmpty(CurrentSession.Get("deviceId")))
+			{
+				var sessionInfo = _sessionManager.GetSession();
+				CurrentSession.Set("sessionId", sessionInfo.Data.SessionId);
+				CurrentSession.Set("deviceId", sessionInfo.Data.DeviceId);
+				sessionId = CurrentSession.SessionInfo.ToString();
+			}
 
 			return this;
 		}

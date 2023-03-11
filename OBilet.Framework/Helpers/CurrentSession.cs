@@ -9,7 +9,7 @@ namespace OBilet.Framework
 {
 	public class CurrentSession
 	{
-        public static object User
+        public static string SessionInfo
         {
             get
             {
@@ -21,13 +21,13 @@ namespace OBilet.Framework
             HttpContext.Current.Session[key] = value;
         }
 
-        public static object Get(string key)
+        public static string Get(string key)
         {
             if (HttpContext.Current.Session[key] != null)
             {
-                return HttpContext.Current.Session[key];
+                return (string)HttpContext.Current.Session[key];
             }
-            return default(object);
+            return default(string);
         }
 
         public static void Remove(string key)
