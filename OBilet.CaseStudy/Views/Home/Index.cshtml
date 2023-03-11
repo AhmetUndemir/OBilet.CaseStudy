@@ -3,8 +3,8 @@
 	ViewBag.Title = "Home Page";
 }
 
-
-<div class="card ">
+<link href="~/Content/index.css" rel="stylesheet" />
+<div class="card">
 	<div class="card-header header">
 	</div>
 	<div class="card-body py-5" id="py">
@@ -29,7 +29,7 @@
 					</div>
 				</div>
 				<div class="row">
-					<button type="button" id="changeInfo"><img src="~/Content/image/sort_alt.png" id="imgsortalt" /></button>
+					<button type="button" id="changeInfo"><img src="~/Content/image/arrow.png" id="imgsortalt" /></button>
 				</div>
 				<div class="row" style="margin-top:4px">
 					<div id="tolocationcontent">
@@ -59,8 +59,7 @@
 								<img src="~/Content/image/calendar.png" class="calendar1" />
 							</div>
 							<div class="col-md-8">
-								<input id="date" class="form-control" type="date" name="date">
-								@Html.
+								<input id="date" class="form-control flatpicker1" type="date" name="date">
 							</div>
 							<div class="col-md-3 timetodaytomorrow">
 								<button type="button" class="timetorow" id="today">Bugün</button>
@@ -71,9 +70,11 @@
 					</div>
 				</div>
 				<div class="row">
-					<button type="submit" id="submit" class="btn btn-primary">Bileti Bul</button>
+					<button type="submit" id="submit" class="btn btn-primary">Otobüs Bileti Bul</button>
 				</div>
 			</form>
 		</div>
 	</div>
 </div>
+
+<script src="~/Scripts/index.js"></script>

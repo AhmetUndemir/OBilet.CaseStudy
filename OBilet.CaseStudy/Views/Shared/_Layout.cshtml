@@ -1,63 +1,35 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="tr-TR">
 <head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>@ViewBag.Title - My ASP.NET Application</title>
-	@Styles.Render("~/Content/css")
-	@Scripts.Render("~/bundles/modernizr")
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
 
-	<!--Kendo-->
-	<link lang="tr" href="~/Content/Kendo/css/kendo.common-material.min.css" rel="stylesheet" type="text/css" />
-	<link href="~/Content/Kendo/css/kendo.mobile.all.min.css" rel="stylesheet" type="text/css" />
-	<link href="~/Content/Kendo/css/kendo.dataviz.min.css" rel="stylesheet" type="text/css" />
-	<link href="~/Content/Kendo/css/kendo.material.min.css" rel="stylesheet" type="text/css" />
-	<link href="~/Content/Kendo/css/kendo.dataviz.material.min.css" rel="stylesheet" type="text/css" />
-	<!--Kendo-->
+	<link href="~/Content/bootstrap-chosen.css" rel="stylesheet" />
+	<link href="~/Content/theme/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="~/Content/theme/css/full-width-pics.css" rel="stylesheet">
 
 
-	<!--Kendo-->
-	<script src="~/Content/Kendo/js/jszip.min.js"></script>
-	<script src="~/Content/Kendo/js/kendo.all.min.js"></script>
-	<script src="~/Content/Kendo/js/kendo.aspnetmvc.min.js"></script>
 
-	<script src="~/Content/Kendo/js/messages/kendo.messages.en-US.min.js"></script>
-	<script src="~/Content/Kendo/js/messages/kendo.messages.tr-TR.min.js"></script>
-	<script src="~/Content/Kendo/js/cultures/kendo.culture.tr-TR.min.js"></script>
-	<script src="~/Content/Kendo/js/cultures/kendo.culture.en-US.min.js"></script>
-	<!--Kendo-->
+	<script src="~/Scripts/jquery-3.3.1.js"></script>
+	<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+	<script src="~/Scripts/bootstrap.min.js"></script>
+	<script src="~/Scripts/moment.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+	<link href="~/Content/index.css" rel="stylesheet" />
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+	@RenderBody()
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+
+	<script src="~/Content/theme/vendor/jquery/jquery.min.js"></script>
+	<script src="~/Content/theme/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="~/Scripts/chosen.jquery.js"></script>
 </body>
 </html>
+
+
+

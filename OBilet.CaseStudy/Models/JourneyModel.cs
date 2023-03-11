@@ -43,6 +43,7 @@ namespace OBilet.CaseStudy
 			{
 				this.originLocation = busJourneyDatas.Select(a => a.OriginLocation).FirstOrDefault();
 				this.destinationLocation = busJourneyDatas.Select(a => a.DestinationLocation).FirstOrDefault();
+				this.departureDate = busJourneyDatas.Select(a => a.Journey.Departure).FirstOrDefault();
 			}
 			return this;
 		}

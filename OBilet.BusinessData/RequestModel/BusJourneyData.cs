@@ -12,6 +12,9 @@ namespace OBilet.BusinessData
         [JsonProperty("id")]
         public int Id { get; set; }
 
+        [JsonProperty("partner-id")]
+        public string PartnerId { get; set; }
+
         [JsonProperty("partner-name")]
         public string PartnerName { get; set; }
 
