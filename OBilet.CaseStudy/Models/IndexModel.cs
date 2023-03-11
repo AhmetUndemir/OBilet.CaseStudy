@@ -16,6 +16,9 @@ namespace OBilet.CaseStudy
 		public SelectList BusLocations { get; set; }
 		public string sessionId { get; set; }
 		public string deviceId { get; set; }
+		public int originId { get; set; }
+		public int destinationId { get; set; }
+		public DateTime date { get; set; }
 
 		public IndexModel()
 		{
