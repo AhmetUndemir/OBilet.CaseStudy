@@ -1,6 +1,6 @@
 ﻿@model OBilet.CaseStudy.IndexModel
 @{
-    ViewBag.Title = "Home Page";
+	ViewBag.Title = "Home Page";
 }
 
 
@@ -9,7 +9,7 @@
 	</div>
 	<div class="card-body py-5" id="py">
 		<div class="container">
-			<form action="/Home/Index" name="registration" method="post">
+			<form action="/Journey/Index" name="registration" method="get">
 				<div class="row">
 					<div id="fromlocationcontent">
 						<div class="row">
@@ -21,10 +21,10 @@
 								<img src="~/Content/image/location3.jpg" id="imglocation3" />
 							</div>
 							<div class="col-md-10">
-								@Html.DropDownList("FromBusLocation", Model.BusLocations as IEnumerable<SelectListItem>, "İl veya ilçe adı yazın", new { @class = "form-control", id = "frombuslocation" })
-								@Html.Label("FromBusLocation", "Şehir alanı seçmelisiniz..", new { @class = "frombuslocationvalidation", id = "frombuslocationvalidation" })
+								@Html.DropDownList("originId", Model.BusLocations as IEnumerable<SelectListItem>, "İl veya ilçe adı yazın", new { @class = "form-control", id = "frombuslocation" })
+								@Html.Label("originId", "Şehir alanı seçmelisiniz..", new { @class = "frombuslocationvalidation", id = "frombuslocationvalidation" })
 							</div>
-							@Html.Hidden("SessionInfo", (string)Model.sessionId)
+							@Html.Hidden("SessionInfo", Model.sessionId)
 						</div>
 					</div>
 				</div>
@@ -42,8 +42,8 @@
 								<img src="~/Content/image/location3.jpg" id="imglocation3another" />
 							</div>
 							<div class="col-md-10">
-								@Html.DropDownList("ToBusLocation", Model.BusLocations, "İl veya ilçe adı yazın", new { @class = "form-control", id = "tobuslocation" })
-								@Html.Label("ToBusLocation", "Şehir alanı seçmelisiniz..", new { @class = "tobuslocationvalidation", id = "tobuslocationvalidation" })
+								@Html.DropDownList("destinationId", Model.BusLocations, "İl veya ilçe adı yazın", new { @class = "form-control", id = "tobuslocation" })
+								@Html.Label("destinationId", "Şehir alanı seçmelisiniz..", new { @class = "tobuslocationvalidation", id = "tobuslocationvalidation" })
 							</div>
 						</div>
 					</div>
@@ -59,7 +59,8 @@
 								<img src="~/Content/image/calendar.png" class="calendar1" />
 							</div>
 							<div class="col-md-8">
-								<input id="flatpickr" class="form-control flatpickr1" name="flatpickr">
+								<input id="date" class="form-control" type="date" name="date">
+								@Html.
 							</div>
 							<div class="col-md-3 timetodaytomorrow">
 								<button type="button" class="timetorow" id="today">Bugün</button>

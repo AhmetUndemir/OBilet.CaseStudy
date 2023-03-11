@@ -19,6 +19,9 @@ namespace OBilet.CaseStudy
 		public int destinationId { get; set; }
 		public DateTime date { get; set; }
 		public List<BusJourneyData> busJourneyDatas { get; set; } = new List<BusJourneyData>();
+		public string originLocation { get; set; }
+		public string destinationLocation { get; set; }
+		public DateTime departureDate { get; set; }
 		public JourneyModel()
 		{
 			_journeyManager = new JourneyManager();
@@ -36,6 +39,11 @@ namespace OBilet.CaseStudy
 				deviceId = CurrentSession.DeviceInfo;
 			}
 			this.busJourneyDatas.AddRange(GetBusJourneys());
+			if (this.busJourneyDatas.Any())
+			{
+				this.originLocation = busJourneyDatas.Select(a => a.OriginLocation).FirstOrDefault();
+				this.destinationLocation = busJourneyDatas.Select(a => a.DestinationLocation).FirstOrDefault();
+			}
 			return this;
 		}
 

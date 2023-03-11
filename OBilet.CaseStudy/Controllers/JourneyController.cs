@@ -8,6 +8,8 @@ namespace OBilet.CaseStudy.Controllers
 {
     public class JourneyController : Controller
     {
+        [HttpGet]
+        [Route("seferler/{originId}-{destinationId}/{date}")]
         public ActionResult Index(JourneyModel model)
         {
             return View(model.Load());
