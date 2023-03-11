@@ -64,7 +64,9 @@
     <Compile Include="ResponseModel\BusLocationResponseModel.cs" />
     <Compile Include="ResponseModel\SessionResponseModel.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
