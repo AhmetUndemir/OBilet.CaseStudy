@@ -1,14 +1,14 @@
 ﻿$(document).ready(function () {
-	debugger;
+
 	$("#changeInfo").on('click', function (ev) {
-		debugger;
-		var a = $("#frombuslocation option:selected").text();
-		var b = $("#tobuslocation option:selected").text();
-		if (a == b) {
-			warningAlert("İşlem Başarısız", "Hem başlangıç hem de varış yeri olarak aynı konumu seçilemez", "Tamam")
-		} else {
-			swaper();
+
+		var fromBusLocation = $("#frombuslocation option:selected").text();
+		var toBusLocation = $("#tobuslocation option:selected").text();
+		if (fromBusLocation == toBusLocation) {
+			warningAlert("İşlem Başarısız", "Hem başlangıç hem de varış yeri olarak aynı konumu seçilemez", "Tamam");
+			return;
 		}
+		exchange();
 	});
 });
 
@@ -23,7 +23,7 @@ function warningAlert(title, message, buttonText = "Kapat") {
 }
 
 
-function swaper() {
+function exchange() {
 	var co = $("#frombuslocation").val();
 	var coText = $("#frombuslocation option:selected").text();
 	var co_2 = $("#tobuslocation").val();
@@ -43,7 +43,6 @@ function swaper() {
 }
 
 $(function () {
-	debugger;
 	$('#today').css("background-color", "white");
 	$('#tomorrow').css("background-color", "grey");
 	var tomorrow = new Date();
@@ -54,13 +53,11 @@ $(function () {
 $("#date").flatpickr({
 	enableTime: true,
 	locale: "tr",
-	//dateFormat: "d F Y l",
 	dateFormat: "D M d Y",
 	minDate: "today"
 });
 
 $("#today").click(function () {
-	debugger;
 	$('#today').css("background-color", "grey");
 	$('#tomorrow').css("background-color", "white");
 	var date = new Date();
@@ -78,26 +75,25 @@ $("#tomorrow").click(function () {
 $(function () {
 	$("#frombuslocation").chosen();
 	$(".chosen-single").css("border", "0");
-
 	$("#tobuslocation").chosen();
 	$(".chosen-single").css("border", "0");
 });
 
 $("#submit").click(function () {
-	debugger;
-	var a = $("#frombuslocation option:selected").val();
-	var b = $("#tobuslocation option:selected").val();
-	if (a == "" && b == "") {
+
+	var fromBusLocation = $("#frombuslocation option:selected").val();
+	var toBusLocation = $("#tobuslocation option:selected").val();
+	if (fromBusLocation == "" && toBusLocation == "") {
 		$("#frombuslocationvalidation").show();
 		$("#tobuslocationvalidation").show();
 		return false;
 	}
-	else if (a == "") {
+	else if (fromBusLocation == "") {
 		$("#frombuslocationvalidation").show();
 		$("#tobuslocationvalidation").hide();
 		return false;
 	}
-	else if (b == "") {
+	else if (toBusLocation == "") {
 		$("#tobuslocationvalidation").show();
 		$("#frombuslocationvalidation").hide();
 		return false;
@@ -105,7 +101,7 @@ $("#submit").click(function () {
 });
 
 $(function () {
-	debugger;
+
 	var originvaltext = $("#originlocation").val();
 	var originvalId = $("#originlocationid").val();
 	var destinationText = $("#destinationlocation").val();
@@ -128,7 +124,6 @@ $(function () {
 		departure = new Date(departure).toLocaleString()
 		var date = new Date(departure);
 		$("#date").val(date.toDateString());
-
 	}
 	else {
 		var date = new Date();
