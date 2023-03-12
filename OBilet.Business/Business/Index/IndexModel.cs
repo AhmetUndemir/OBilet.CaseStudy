@@ -65,7 +65,7 @@ namespace OBilet.CaseStudy
 			}
 
 			this.BusLocations = GetBusLocations();
-			_loggerManager.Info(string.Format("Seferler: {0}", JsonConvert.SerializeObject(this.BusLocations)));
+			_loggerManager.Info(string.Format("İl ve İlçeler: {0}", JsonConvert.SerializeObject(this.BusLocations)));
 
 			return this;
 		}

@@ -1,4 +1,5 @@
-﻿using OBilet.Business;
+﻿using Newtonsoft.Json;
+using OBilet.Business;
 using OBilet.BusinessData;
 using OBilet.Framework;
 using System;
@@ -13,6 +14,7 @@ namespace OBilet.CaseStudy
 	{
 		private readonly JourneyManager _journeyManager;
 		private readonly SessionManager _sessionManager;
+		private readonly LoggerManager _loggerManager;
 		public string sessionId { get; set; }
 		public string deviceId { get; set; }
 		public int originId { get; set; }
@@ -26,6 +28,7 @@ namespace OBilet.CaseStudy
 		{
 			_journeyManager = new JourneyManager();
 			_sessionManager = new SessionManager();
+			_loggerManager = new LoggerManager("JourneyModel");
 		}
 
 		public JourneyModel Load()
@@ -37,6 +40,7 @@ namespace OBilet.CaseStudy
 				CurrentSession.Set("deviceId", sessionInfo.Data.DeviceId);
 				sessionId = CurrentSession.SessionInfo;
 				deviceId = CurrentSession.DeviceInfo;
+				_loggerManager.Info(string.Format("Session Info: {0} Device Info: {1}", sessionId, deviceId));
 			}
 			this.busJourneyDatas.AddRange(GetBusJourneys());
 			if (this.busJourneyDatas.Any())
@@ -49,6 +53,12 @@ namespace OBilet.CaseStudy
 				CurrentSession.Set("destinationlocation", this.destinationLocation);
 				CurrentSession.Set("destinationlocationid", this.destinationId.ToString());
 				CurrentSession.Set("departure", this.departureDate.ToString());
+
+				_loggerManager.Info(string.Format("originlocation: {0}", this.originLocation));
+				_loggerManager.Info(string.Format("originlocationid: {0}", this.originId));
+				_loggerManager.Info(string.Format("destinationlocation: {0}", this.destinationLocation));
+				_loggerManager.Info(string.Format("destinationlocationid: {0}", this.destinationId));
+				_loggerManager.Info(string.Format("departure: {0}", this.departureDate));
 			}
 			return this;
 		}
@@ -74,6 +84,8 @@ namespace OBilet.CaseStudy
 			{
 				busLocations.Data = new List<BusJourneyData>();
 			}
+
+			_loggerManager.Info(string.Format("Seferler: {0}", JsonConvert.SerializeObject(busLocations.Data)));
 			return busLocations.Data;
 		}
 
