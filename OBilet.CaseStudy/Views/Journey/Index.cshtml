@@ -38,10 +38,9 @@
 				<a class="journeydetail" target="_blank" href="https://www.obilet.com/seferler/@Model.originId-@Model.destinationId/@string.Format("{0:yyyy-MM-dd}",Model.departureDate)/@item.Id">
 					<div class="container containersize">
 						<div class="childrendiv">
-							<img src="https://s3.eu-central-1.amazonaws.com/static.obilet.com/images/partner/@item.PartnerId-sm.png" width="150" />
+							<img src="https://s3.eu-central-1.amazonaws.com/static.obilet.com/images/partner/@item.PartnerId-sm.png" width="150" style="margin-right:9px" />
 
-							<div class="row">
-
+							<div class="row" style="margin-left:-9px;">
 								<div class="col-xs-6 col-md-1">
 									<i>Kalkış</i><br />
 									<b>@string.Format("{0:HH:mm}", item.Journey.Departure)</b>
@@ -59,7 +58,7 @@
 									<span class="badge badge-secondary buttonprop" style="font-size: 16px !important;line-height: 22px !important;">@item.Journey.InternetPrice @item.Journey.Currency</span>
 								</div>
 							</div>
-							<div class="row">
+							<div class="row" style="margin-left:-9px;">
 								<div class="col-xs-12 col-md-12">
 									<p style="float:left">@item.Journey.Origin - @item.Journey.Destination</p>
 									@Html.Hidden("SessionInfo", item.Id)
