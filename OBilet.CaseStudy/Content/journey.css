@@ -26,15 +26,12 @@
 
 .childrendiv {
     border: 1px double rgba(86,61,124,.2);
-    width: 850px
+    width: %100;
 }
 
 .buttonprop {
     background-color: #D23B38;
-    /*color: white;*/
-    /*border-radius: 10px;*/
     width: 100px;
-    /*height: 30px;*/
     float: right;
     margin-right: 21px
 }

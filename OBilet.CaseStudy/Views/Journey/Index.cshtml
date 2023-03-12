@@ -35,7 +35,7 @@
 		{
 			foreach (var item in Model.busJourneyDatas)
 			{
-				<a class="journeydetail" href="">
+				<a class="journeydetail" target="_blank" href="https://www.obilet.com/seferler/@Model.originId-@Model.destinationId/@string.Format("{0:yyyy-MM-dd}",Model.departureDate)/@item.Id">
 					<div class="container containersize">
 						<div class="childrendiv">
 							<img src="https://s3.eu-central-1.amazonaws.com/static.obilet.com/images/partner/@item.PartnerId-sm.png" width="150" />
@@ -57,19 +57,20 @@
 								</div>
 								<div class="col-xs-6 col-md-9">
 									<span class="badge badge-secondary buttonprop" style="font-size: 16px !important;line-height: 22px !important;">@item.Journey.InternetPrice @item.Journey.Currency</span>
-</div>
-</div>
-<div class="row">
-	<div class="col-xs-12 col-md-12">
-		<p style="float:left">@item.Journey.Origin - @item.Journey.Destination</p>
-		@Html.Hidden("SessionInfo", item.Id)
-	</div>
-</div>
-</div>
-</div>
-<br />
-</a>}
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-12 col-md-12">
+									<p style="float:left">@item.Journey.Origin - @item.Journey.Destination</p>
+									@Html.Hidden("SessionInfo", item.Id)
+								</div>
+							</div>
+						</div>
+					</div>
+					<br />
+				</a>
+			}
 
-}
+		}
 	</div>
 </div>
