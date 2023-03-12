@@ -29,10 +29,6 @@
     width: 850px
 }
 
-.color {
-    background-color: white
-}
-
 .buttonprop {
     background-color: #D23B38;
     color: white;
@@ -40,6 +36,5 @@
     width: 100px;
     height: 30px;
     float: right;
-    margin-top: 10px;
-    margin-right: 5px
+    margin-right: 21px
 }

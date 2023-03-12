@@ -20,6 +20,13 @@ namespace OBilet.CaseStudy
 		public int destinationId { get; set; }
 		public DateTime date { get; set; }
 
+
+		public string originlocation { get; set; }
+		public string originlocationid { get; set; }
+		public string destinationlocation { get; set; }
+		public string destinationlocationid { get; set; }
+		public string departure { get; set; }
+
 		public IndexModel()
 		{
 			_sessionManager = new SessionManager();
@@ -35,6 +42,15 @@ namespace OBilet.CaseStudy
 				CurrentSession.Set("deviceId", sessionInfo.Data.DeviceId);
 				sessionId = CurrentSession.SessionInfo;
 				deviceId = CurrentSession.DeviceInfo;
+			}
+
+			if(!string.IsNullOrEmpty(CurrentSession.Get("originlocation")) && !string.IsNullOrEmpty(CurrentSession.Get("destinationlocation")) && !string.IsNullOrEmpty(CurrentSession.Get("departure")))
+			{
+				this.originlocation = CurrentSession.Get("originlocation");
+				this.originlocationid = CurrentSession.Get("originlocationid");
+				this.destinationlocation = CurrentSession.Get("destinationlocation");
+				this.destinationlocationid = CurrentSession.Get("destinationlocationid");
+				this.departure = CurrentSession.Get("departure");
 			}
 
 			this.BusLocations = GetBusLocations();

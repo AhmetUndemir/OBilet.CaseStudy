@@ -4,17 +4,12 @@
 	ViewBag.Title = "Home Page";
 }
 
-@if (!string.IsNullOrEmpty(CurrentSession.Get("originlocation")) && !string.IsNullOrEmpty(CurrentSession.Get("destinationlocation")) && !string.IsNullOrEmpty(CurrentSession.Get("departure")))
-{
-@Html.Hidden("originlocation", CurrentSession.Get("originlocation"))
-@Html.Hidden("originlocationid", CurrentSession.Get("destinationlocation"))
 
-@Html.Hidden("destinationlocation", CurrentSession.Get("destinationlocation"))
-@Html.Hidden("destinationlocationid", CurrentSession.Get("destinationlocationid"))
-
-@Html.Hidden("departure", CurrentSession.Get("departure"))
-
-}
+@Html.HiddenFor(m => m.originlocation)
+@Html.HiddenFor(m => m.originlocationid)
+@Html.HiddenFor(m => m.destinationlocation)
+@Html.HiddenFor(m => m.destinationlocationid)
+@Html.HiddenFor(m => m.departure)
 
 <link href="~/Content/index.css" rel="stylesheet" />
 <div class="card">
@@ -22,7 +17,7 @@
 	</div>
 	<div class="card-body py-5" id="py">
 		<div class="container">
-			<form action="/Journey/Index" name="registration" method="get">
+			<form action="/Journey/Index" name="journeyForrm" method="get">
 				<div class="row">
 					<div id="fromlocationcontent">
 						<div class="row">
@@ -35,7 +30,7 @@
 							</div>
 							<div class="col-md-10">
 								@Html.DropDownList("originId", Model.BusLocations as IEnumerable<SelectListItem>, "İl veya ilçe adı yazın", new { @class = "form-control", id = "frombuslocation" })
-								@Html.Label("originId", "Şehir alanı seçmelisiniz..", new { @class = "frombuslocationvalidation", id = "frombuslocationvalidation" })
+								@Html.Label("originId", "Lüfen il veya ilçe seçiniz..", new { @class = "frombuslocationvalidation", id = "frombuslocationvalidation" })
 							</div>
 							@Html.Hidden("SessionInfo", Model.sessionId)
 						</div>
@@ -56,7 +51,7 @@
 							</div>
 							<div class="col-md-10">
 								@Html.DropDownList("destinationId", Model.BusLocations, "İl veya ilçe adı yazın", new { @class = "form-control", id = "tobuslocation" })
-								@Html.Label("destinationId", "Şehir alanı seçmelisiniz..", new { @class = "tobuslocationvalidation", id = "tobuslocationvalidation" })
+								@Html.Label("destinationId", "Lüfen il veya ilçe seçiniz..", new { @class = "tobuslocationvalidation", id = "tobuslocationvalidation" })
 							</div>
 						</div>
 					</div>
