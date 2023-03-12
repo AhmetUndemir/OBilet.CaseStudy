@@ -140,6 +140,7 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\image\arrow.png" />
     <Content Include="Content\image\calendar.png" />
+    <Content Include="Content\image\left-arrow.png" />
     <Content Include="Content\image\location.jpg" />
     <Content Include="Content\image\location1.jpg" />
     <Content Include="Content\image\location3.jpg" />
