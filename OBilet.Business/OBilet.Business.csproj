@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net, Version=2.0.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.15\lib\net45\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
@@ -71,6 +74,7 @@
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
     </Reference>
@@ -99,12 +103,14 @@
   <ItemGroup>
     <Compile Include="Abstract\IBusLocationService.cs" />
     <Compile Include="Abstract\IJourneyService.cs" />
+    <Compile Include="Abstract\ILoggerService.cs" />
     <Compile Include="Abstract\ISessionService.cs" />
     <Compile Include="Abstract\IRequestService.cs" />
     <Compile Include="Business\Index\IndexModel.cs" />
     <Compile Include="Business\Journey\JourneyModel.cs" />
     <Compile Include="Conctrete\BusLocationManager.cs" />
     <Compile Include="Conctrete\JourneyManager.cs" />
+    <Compile Include="Conctrete\LoggerManager.cs" />
     <Compile Include="Conctrete\RequestManager.cs" />
     <Compile Include="Conctrete\SessionManager.cs" />
     <Compile Include="Models\BaseUrl.cs" />

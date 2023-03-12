@@ -1,4 +1,5 @@
-﻿using OBilet.Business;
+﻿using Newtonsoft.Json;
+using OBilet.Business;
 using OBilet.BusinessData;
 using OBilet.Framework;
 using System;
@@ -13,6 +14,7 @@ namespace OBilet.CaseStudy
 	{
 		private readonly SessionManager _sessionManager;
 		private readonly BusLocationManager _busLocationManager;
+		private readonly LoggerManager _loggerManager;
 		public SelectList BusLocations { get; set; }
 		public string sessionId { get; set; }
 		public string deviceId { get; set; }
@@ -31,6 +33,7 @@ namespace OBilet.CaseStudy
 		{
 			_sessionManager = new SessionManager();
 			_busLocationManager = new BusLocationManager();
+			_loggerManager = new LoggerManager("IndexModel");
 		}
 
 		public IndexModel Load()
@@ -42,18 +45,27 @@ namespace OBilet.CaseStudy
 				CurrentSession.Set("deviceId", sessionInfo.Data.DeviceId);
 				sessionId = CurrentSession.SessionInfo;
 				deviceId = CurrentSession.DeviceInfo;
+
+				_loggerManager.Info(string.Format("Session Info: {0} Device Info: {1}", sessionId, deviceId));
 			}
 
-			if(!string.IsNullOrEmpty(CurrentSession.Get("originlocation")) && !string.IsNullOrEmpty(CurrentSession.Get("destinationlocation")) && !string.IsNullOrEmpty(CurrentSession.Get("departure")))
+			if (!string.IsNullOrEmpty(CurrentSession.Get("originlocation")) && !string.IsNullOrEmpty(CurrentSession.Get("destinationlocation")) && !string.IsNullOrEmpty(CurrentSession.Get("departure")))
 			{
 				this.originlocation = CurrentSession.Get("originlocation");
 				this.originlocationid = CurrentSession.Get("originlocationid");
 				this.destinationlocation = CurrentSession.Get("destinationlocation");
 				this.destinationlocationid = CurrentSession.Get("destinationlocationid");
 				this.departure = CurrentSession.Get("departure");
+
+				_loggerManager.Info(string.Format("originlocation: {0}", this.originlocation));
+				_loggerManager.Info(string.Format("originlocationid: {0}", this.originlocationid));
+				_loggerManager.Info(string.Format("destinationlocation: {0}", this.destinationlocation));
+				_loggerManager.Info(string.Format("destinationlocationid: {0}", this.destinationlocationid));
+				_loggerManager.Info(string.Format("departure: {0}", this.departure));
 			}
 
 			this.BusLocations = GetBusLocations();
+			_loggerManager.Info(string.Format("Seferler: {0}", JsonConvert.SerializeObject(this.BusLocations)));
 
 			return this;
 		}
@@ -68,7 +80,7 @@ namespace OBilet.CaseStudy
 
 			var busLocation = new BusLocation
 			{
-		 		DeviceSession = DeviceSession,
+				DeviceSession = DeviceSession,
 				Data = null,
 				Date = DateTime.Now,
 				Language = "tr-TR"
