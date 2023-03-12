@@ -1,4 +1,5 @@
-﻿$(document).ready(function () {
+﻿
+$(document).ready(function () {
 
 	$("#changeInfo").on('click', function (ev) {
 
@@ -102,31 +103,32 @@ $("#submit").click(function () {
 
 $(function () {
 
-	var originvaltext = $("#originlocation").val();
-	var originvalId = $("#originlocationid").val();
-	var destinationText = $("#destinationlocation").val();
-	var destinationid = $("#destinationlocationid").val();
+	var originLocationText = $("#originlocation").val();
+	var originLocationId = $("#originlocationid").val();
+	var destinationLocationText = $("#destinationlocation").val();
+	var destinationLocationId = $("#destinationlocationid").val();
 
-	if (originvaltext != "" && destinationText != "" && $("#departure").val() != "") {
+	var date = new Date();
+	if (originLocationText != "" && destinationLocationText != "" && $("#departure").val() != "") {
 		var toSpan = $('#tobuslocation_chosen a span');
-		var result = $(toSpan).text(destinationText); destinationText
-		var resultValues = $(toSpan).val(originvalId);
+		var result = $(toSpan).text(destinationLocationText);
+		var resultValues = $(toSpan).val(originLocationId);
 		var fromSpan = $('#frombuslocation_chosen a span');
-		var result1 = $(fromSpan).text(originvaltext);
-		var result1Value = $(fromSpan).val(destinationid);
+		var result1 = $(fromSpan).text(originLocationText);
+		var result1Value = $(fromSpan).val(destinationLocationId);
 
 		$("#frombuslocation option:selected").val(result1Value.val());
 		$("#frombuslocation option:selected").text(result1.text());
 		$("#tobuslocation option:selected").val(resultValues.val());
 		$("#tobuslocation option:selected").text(result.text());
 
-		var departure = $("#departure").val();
-		departure = new Date(departure).toLocaleString()
-		var date = new Date(departure);
-		$("#date").val(date.toDateString());
+		var departure = $("#departure").val().split(' ')[0].split('.');
+		departure = departure[1] + "." + departure[0] + "." + departure[2]
+		departure = new Date(departure);
+		$("#date").val(departure.toDateString());
 	}
 	else {
-		var date = new Date();
+		date = new Date();
 		date.setDate(date.getDate() + 1);
 		$("#date").val(date.toDateString());
 	}
