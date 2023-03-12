@@ -56,20 +56,20 @@
 									<b>@string.Format("{0:HH:mm}", item.Journey.Arrival)</b>
 								</div>
 								<div class="col-xs-6 col-md-9">
-									<button type="button" class="buttonprop">@item.Journey.InternetPrice @item.Journey.Currency</button>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-xs-12 col-md-12">
-									<p style="float:left">@item.Journey.Origin - @item.Journey.Destination</p>
-									@Html.Hidden("SessionInfo", item.Id)
-								</div>
-							</div>
-						</div>
-					</div>
-					<br />
-				</a>}
+									<span class="badge badge-secondary buttonprop" style="font-size: 16px !important;line-height: 22px !important;">@item.Journey.InternetPrice @item.Journey.Currency</span>
+</div>
+</div>
+<div class="row">
+	<div class="col-xs-12 col-md-12">
+		<p style="float:left">@item.Journey.Origin - @item.Journey.Destination</p>
+		@Html.Hidden("SessionInfo", item.Id)
+	</div>
+</div>
+</div>
+</div>
+<br />
+</a>}
 
-		}
+}
 	</div>
 </div>

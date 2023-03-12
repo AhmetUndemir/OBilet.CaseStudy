@@ -87,7 +87,8 @@
     border-radius: 30px;
     position: absolute;
     margin-left: 386px;
-    margin-top: -22px
+    margin-top: -22px;
+    background-color:white;
 }
 
 #frombuslocation {

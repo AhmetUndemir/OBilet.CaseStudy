@@ -31,10 +31,10 @@
 
 .buttonprop {
     background-color: #D23B38;
-    color: white;
-    border-radius: 10px;
+    /*color: white;*/
+    /*border-radius: 10px;*/
     width: 100px;
-    height: 30px;
+    /*height: 30px;*/
     float: right;
     margin-right: 21px
 }
