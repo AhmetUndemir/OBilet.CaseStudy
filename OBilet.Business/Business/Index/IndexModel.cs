@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using AutoMapper;
+using Newtonsoft.Json;
 using OBilet.Business;
 using OBilet.BusinessData;
 using OBilet.Framework;
@@ -87,7 +88,6 @@ namespace OBilet.CaseStudy
 			};
 
 			var busLocations = _busLocationManager.GetBusLocations(busLocation);
-
 			return new SelectList(busLocations.Data, "Id", "Name");
 		}
 	}

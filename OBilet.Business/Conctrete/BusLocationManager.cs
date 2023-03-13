@@ -1,4 +1,5 @@
-﻿using OBilet.Business.Abstract;
+﻿using AutoMapper;
+using OBilet.Business.Abstract;
 using OBilet.BusinessData;
 using System;
 using System.Collections.Generic;
@@ -23,19 +24,6 @@ namespace OBilet.Business
 		}
 		public BusLocationResponseModel GetBusLocations(BusLocation data)
 		{
-			var DeviceSession = new DeviceSession()
-			{
-				DeviceId = data.DeviceSession.DeviceId,
-				SessionId = data.DeviceSession.SessionId
-			};
-
-			data = new BusLocation
-			{
-				DeviceSession =DeviceSession,
-				Data = data.Data,
-				Date = data.Date,
-				Language = data.Language
-			};
 			return _requestManager.Post<BusLocationResponseModel>(data, "location/getbuslocations");
 		}
 	}
