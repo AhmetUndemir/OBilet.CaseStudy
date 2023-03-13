@@ -24,27 +24,6 @@ namespace OBilet.Business
 		}
 		public BusJourneyResponseModel GetBusJourneys(BusJourney busJourney)
 		{
-			var DeviceSession = new DeviceSession()
-			{
-				DeviceId = busJourney.DeviceSession.DeviceId,
-				SessionId = busJourney.DeviceSession.SessionId
-			};
-
-			var Data = new Data()
-			{
-				OriginId = busJourney.Data.OriginId,
-				DepartureDate = busJourney.Data.DepartureDate,
-				DestinationId = busJourney.Data.DestinationId
-			};
-
-			busJourney = new BusJourney
-			{
-				DeviceSession = DeviceSession,
-				Data = Data,
-				Date = busJourney.Date,
-				Language = busJourney.Language
-			};
-
 			return _requestManager.Post<BusJourneyResponseModel>(busJourney, "journey/getbusjourneys");
 		}
 	}
