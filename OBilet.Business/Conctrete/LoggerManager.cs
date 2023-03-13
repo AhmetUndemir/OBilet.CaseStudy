@@ -9,30 +9,30 @@ namespace OBilet.Business
 {
 	public class LoggerManager : ILoggerService
 	{
-		private ILog logManager;
+		private ILog _logManager;
 
 		public LoggerManager(string getLogger)
 		{
-			logManager = LogManager.GetLogger(getLogger);
+			_logManager = LogManager.GetLogger(getLogger);
 		}
 		public void Debug(string message)
 		{
-			logManager.Debug(message);
+			_logManager.Debug(message);
 		}
 
 		public void Error(string message)
 		{
-			logManager.Error(message);
+			_logManager.Error(message);
 		}
 
 		public void Info(string message)
 		{
-			logManager.Info(message);
+			_logManager.Info(message);
 		}
 
 		public void Warning(string message)
 		{
-			logManager.Warn(message);
+			_logManager.Warn(message);
 		}
 	}
 }
